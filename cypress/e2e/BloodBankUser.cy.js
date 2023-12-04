@@ -1727,7 +1727,7 @@ describe("Deliveries", function () {
   });
 });
 describe("Logout", function () {
-  it.only("Verify that the logout button is visible and clickable", function () {
+  it("Verify that the logout button is visible and clickable", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
     loginPage.enterusername("nelo_BDC");
     loginPage.enterPassword("password");
@@ -1736,7 +1736,7 @@ describe("Logout", function () {
     cy.get('[data-testid="user-info-logout"]').click();
     cy.contains("logout").should("contain", "logout").and("be.visible");
   });
-  it.only("Verify that the logout button is visible and clickable", function () {
+  it("Verify that the logout button is visible and clickable", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
     loginPage.enterusername("nelo_BDC");
     loginPage.enterPassword("password");
