@@ -1495,11 +1495,9 @@ describe("Requests", function () {
     cy.contains("Blood Product Type")
       .should("contain", "Blood Product Type")
       .and("be.visible");
-    cy.contains("Quantity")
-    .should("contain", "Quantity")
-    .and("be.visible");
-    cy.contains('Requesting Facility')
-    .should("contain", "Requesting Facility")
+    cy.contains("Quantity").should("contain", "Quantity").and("be.visible");
+    cy.contains("Requesting Facility")
+      .should("contain", "Requesting Facility")
       .and("be.visible");
     cy.contains("Date & Time")
       .should("contain", "Date & Time")
@@ -1525,8 +1523,9 @@ describe("Requests", function () {
     cy.contains("Reports").click();
     cy.contains("Requests").click();
     cy.get(".sc-fnykZs").type("red");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-first > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-first > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Requests by quantity and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1550,8 +1549,9 @@ describe("Requests", function () {
     cy.contains("Reports").click();
     cy.contains("Requests").click();
     cy.get(".sc-fnykZs").type("Blood Bank");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Requests by date & time and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1562,8 +1562,9 @@ describe("Requests", function () {
     cy.contains("Reports").click();
     cy.contains("Requests").click();
     cy.get(".sc-fnykZs").type("Nov 21");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
 
   it('Verify that the ellipses under the "Actions" column expands to  enable the user view details', function () {
@@ -1724,9 +1725,10 @@ describe("Requests", function () {
     cy.contains("Requests").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
     cy.contains("Select Facility").click();
-    cy.get('[data-key="Lagos State University Teaching Hospital (LASUTH)"] > .rs-picker-select-menu-item').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.get(
+      '[data-key="Lagos State University Teaching Hospital (LASUTH)"] > .rs-picker-select-menu-item'
+    ).click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
   it("Verify that the user is able to filter by quantity", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1737,8 +1739,7 @@ describe("Requests", function () {
     cy.contains("Requests").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
     cy.get("Enter Quantity").click();
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
 
   it("Verify that the user is able to filter by priority", function () {
@@ -1750,9 +1751,8 @@ describe("Requests", function () {
     cy.contains("Requests").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
     cy.contains("Select Priority").click();
-    cy.contains('High').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.contains("High").click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
   it("Verify that the user is able to filter by status", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1763,9 +1763,8 @@ describe("Requests", function () {
     cy.contains("Requests").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
     cy.contains("Select Status").click();
-    cy.contains('Active').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.contains("Active").click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
 
   it('Verify that the filter is triggered by clicking on a "Filter" button which is clearly visible and clickable', function () {
@@ -1812,15 +1811,11 @@ describe("Cross Matching", function () {
     cy.contains("Blood Product")
       .should("contain", "Blood Product")
       .and("be.visible");
-    cy.contains("Blood Type")
-    .should("contain", "Blood Type")
-    .and("be.visible");
-    cy.contains('Patient Name')
-    .should("contain", "Patient Name")
+    cy.contains("Blood Type").should("contain", "Blood Type").and("be.visible");
+    cy.contains("Patient Name")
+      .should("contain", "Patient Name")
       .and("be.visible");
-    cy.contains("Is Match")
-      .should("contain", "Is Match")
-      .and("be.visible");
+    cy.contains("Is Match").should("contain", "Is Match").and("be.visible");
     cy.contains("ACTION").should("contain", "ACTION").and("be.visible");
   });
   it('Verify that the Cross Matching landing page has search field with a place holder "Search Cross Matching"', function () {
@@ -1842,8 +1837,9 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".sc-fnykZs").type("plasma");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-first > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-first > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Cross Matching by blood type and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1854,8 +1850,9 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".sc-fnykZs").type("O-");
-    cy.get('.rs-table-cell-group > [aria-colindex="2"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '.rs-table-cell-group > [aria-colindex="2"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Cross Matching by patient name and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1866,8 +1863,9 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".sc-fnykZs").type("Nelo");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Cross Matching by is match and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1878,8 +1876,9 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".sc-fnykZs").type("Yes");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Cross Matching by status and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -1890,8 +1889,9 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".sc-fnykZs").type("Completed");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="5"] > .rs-table-cell-content > .sc-iTONeN')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="5"] > .rs-table-cell-content > .sc-iTONeN'
+    ).should("be.visible");
   });
 
   it('Verify that the ellipses under the "Action" column expands to  enable the user view details', function () {
@@ -1935,15 +1935,13 @@ describe("Cross Matching", function () {
       '[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-last > .rs-table-cell-content > .rs-btn-icon'
     ).click();
     cy.contains("View details").click();
-    cy.contains('Result')
-    .should('have.text','Result')
-    .and('be.visible')
-    cy.contains('Health Worker Information')
-    .should('have.text','Health Worker Information')
-    .and('be.visible')
-    cy.contains('Equipment & Consumables')
-    .should('have.text','Equipment & Consumables')
-    .and('be.visible')
+    cy.contains("Result").should("have.text", "Result").and("be.visible");
+    cy.contains("Health Worker Information")
+      .should("have.text", "Health Worker Information")
+      .and("be.visible");
+    cy.contains("Equipment & Consumables")
+      .should("have.text", "Equipment & Consumables")
+      .and("be.visible");
     cy.get(".rs-modal-body > :nth-child(2)")
       .scrollIntoView()
       .should("have.text", "Other Information")
@@ -2060,11 +2058,14 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
-    cy.get(':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]').click()
-    cy.wait(10000)
-    cy.get(':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.get(
+      ':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]'
+    ).click();
+    cy.wait(10000);
+    cy.get(
+      ':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]'
+    ).click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
   it("Verify that the user is able to filter by match", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2074,13 +2075,13 @@ describe("Cross Matching", function () {
     cy.contains("Reports").click();
     cy.contains("Cross Matching").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
-    cy.get(':nth-child(3) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]').click()
-    cy.contains('Yes').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.get(
+      ':nth-child(3) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]'
+    ).click();
+    cy.contains("Yes").click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
 
-  
   it("Verify that the user is able to filter by status", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
     loginPage.enterusername("nelo_hospital");
@@ -2090,10 +2091,9 @@ describe("Cross Matching", function () {
     cy.contains("Cross Matching").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
     cy.contains("Select Status").click();
-    cy.wait(10000)
-    cy.get('[data-key="Completed"] > .rs-picker-select-menu-item').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.wait(10000);
+    cy.get('[data-key="Completed"] > .rs-picker-select-menu-item').click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
 
   it('Verify that the filter is triggered by clicking on a "Filter" button which is clearly visible and clickable', function () {
@@ -2140,21 +2140,15 @@ describe("Adverse Event", function () {
     cy.contains("Patient Code")
       .should("contain", "Patient Code")
       .and("be.visible");
-    cy.contains("First Name")
-    .should("contain", "First Name")
-    .and("be.visible");
-    cy.contains('Last Name')
-    .should("contain", "Last Name")
-      .and("be.visible");
-      cy.get(':nth-child(4) > .rs-table-cell > .rs-table-cell-content > .sc-kDDrLX')
+    cy.contains("First Name").should("contain", "First Name").and("be.visible");
+    cy.contains("Last Name").should("contain", "Last Name").and("be.visible");
+    cy.get(
+      ":nth-child(4) > .rs-table-cell > .rs-table-cell-content > .sc-kDDrLX"
+    )
       .should("contain", "Facility")
       .and("be.visible");
-      cy.contains("Severity")
-      .should("contain", "Severity")
-      .and("be.visible");
-      cy.contains("Date")
-      .should("contain", "Date")
-      .and("be.visible");
+    cy.contains("Severity").should("contain", "Severity").and("be.visible");
+    cy.contains("Date").should("contain", "Date").and("be.visible");
     cy.contains("ACTION").should("contain", "ACTION").and("be.visible");
   });
   it('Verify that the Adverse Event landing page has search field with a place holder "Search Adverse Event Records"', function () {
@@ -2165,9 +2159,7 @@ describe("Adverse Event", function () {
     cy.wait(10000);
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
-    cy.get(".sc-fnykZs")
-    .should('contain','')
-    .and("be.visible");
+    cy.get(".sc-fnykZs").should("contain", "").and("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by patient code and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2178,8 +2170,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("PC-FF");
-    cy.get('.rs-table-cell-group > .rs-table-cell-first > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      ".rs-table-cell-group > .rs-table-cell-first > .rs-table-cell-content"
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by first name and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2190,8 +2183,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("N/A");
-    cy.get('.rs-table-cell-group > [aria-colindex="2"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '.rs-table-cell-group > [aria-colindex="2"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by patient name and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2202,8 +2196,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("Nelo");
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by last name and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2214,8 +2209,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("N/A");
-    cy.get('.rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '.rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by facility and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2226,8 +2222,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("Lagos");
-    cy.get('.rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '.rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by severity and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2238,8 +2235,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("Low");
-    cy.get('.rs-table-cell-group > [aria-colindex="5"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '.rs-table-cell-group > [aria-colindex="5"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
   it("Verify that the user is able to search Adverse Event by date of transfusion and that the result is clearly visible", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2250,8 +2248,9 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".sc-fnykZs").type("Dec 21");
-    cy.get('.rs-table-cell-group > [aria-colindex="5"] > .rs-table-cell-content')
-    .should("be.visible");
+    cy.get(
+      '.rs-table-cell-group > [aria-colindex="5"] > .rs-table-cell-content'
+    ).should("be.visible");
   });
 
   it('Verify that the ellipses under the "Action" column expands to  enable the user view details', function () {
@@ -2295,9 +2294,9 @@ describe("Adverse Event", function () {
       '[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-last > .rs-table-cell-content > .rs-btn-icon'
     ).click();
     cy.contains("View details").click();
-    cy.contains('Other Information')
-    .should('have.text','Other Information')
-    .and('be.visible')
+    cy.contains("Other Information")
+      .should("have.text", "Other Information")
+      .and("be.visible")
       .should("have.text", "Other Information")
       .and("be.visible");
   });
@@ -2412,12 +2411,17 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
-    cy.get(':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]').click()
-    cy.wait(10000)
-    cy.get(':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]').click()
-    cy.get('[data-key="Lagos State University Teaching Hospital (LASUTH)"] > .rs-picker-select-menu-item').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.get(
+      ':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]'
+    ).click();
+    cy.wait(10000);
+    cy.get(
+      ':nth-child(1) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]'
+    ).click();
+    cy.get(
+      '[data-key="Lagos State University Teaching Hospital (LASUTH)"] > .rs-picker-select-menu-item'
+    ).click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
   it("Verify that the user is able to filter by severity", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
@@ -2427,13 +2431,13 @@ describe("Adverse Event", function () {
     cy.contains("Reports").click();
     cy.contains("Adverse Event").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
-    cy.get(':nth-child(2) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]').click()
-    cy.contains('Low').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.get(
+      ':nth-child(2) > .sc-jdAMXn > .sc-idiyUo > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"]'
+    ).click();
+    cy.contains("Low").click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
 
-  
   it("Verify that the user is able to filter by date period", function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
     loginPage.enterusername("nelo_hospital");
@@ -2443,15 +2447,33 @@ describe("Adverse Event", function () {
     cy.contains("Adverse Event").click();
     cy.get(".rs-flex-box-grid-item > .sc-bczRLJ").click();
     cy.contains("Select Date").click();
-    cy.wait(10000)
-    cy.get('.sc-hAZoDl > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"] > .rs-picker-toggle-textbox').type('2022-12-21 ~ 2023-01-24')
-    cy.get('.rs-picker-toolbar-right > .rs-btn').click()
-    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
-
+    cy.wait(10000);
+    cy.get(
+      '.sc-hAZoDl > .rs-picker-toggle > .rs-stack > [style="flex-grow: 1; overflow: hidden;"] > .rs-picker-toggle-textbox'
+    ).type("2022-12-21 ~ 2023-01-24");
+    cy.get(".rs-picker-toolbar-right > .rs-btn").click();
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click();
   });
-
- 
 });
 
-
-
+describe("Logout", function () {
+  it.only("Verify that the logout button is visible and clickable", function () {
+    loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
+    loginPage.enterusername("nelo_BDC");
+    loginPage.enterPassword("password");
+    loginPage.clickLogin();
+    cy.contains("Reports").click();
+    cy.get('[data-testid="user-info-logout"]').click();
+    cy.contains("logout").should("contain", "logout").and("be.visible");
+  });
+  it("Verify that the logout button is visible and clickable", function () {
+    loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
+    loginPage.enterusername("nelo_BDC");
+    loginPage.enterPassword("password");
+    loginPage.clickLogin();
+    cy.contains("Reports").click();
+    cy.get('[data-testid="user-info-logout"]').click();
+    cy.contains("logout").click();
+    cy.get(".sc-bczRLJ").should("contain", "Login");
+  });
+});

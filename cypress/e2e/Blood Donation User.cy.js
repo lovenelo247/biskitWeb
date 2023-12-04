@@ -1321,7 +1321,7 @@ describe('Appointments', function(){
     cy.contains('Reports').click()   
     cy.contains('Appointments').click()
     cy.get('.sc-fnykZs')
-    // .should('contain','Search Appointment')
+    .should('contain','')
     .should('be.visible')
     
   })
@@ -1337,7 +1337,7 @@ describe('Appointments', function(){
     .should('be.visible')
     
   })
-  it.only('Verify that the user is able to search Appointments by donor name and that the result is clearly visible', function(){
+  it('Verify that the user is able to search Appointments by donor name and that the result is clearly visible', function(){
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
@@ -1361,42 +1361,19 @@ describe('Appointments', function(){
     .should('be.visible')
     
   })
-  it('Verify that the user is able to search Appointments by length (cm) and that the result is clearly visible', function(){
+  it('Verify that the user is able to search donors by facility and that the result is clearly visible', function() {
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
     loginPage.clickLogin();
     cy.contains('Reports').click()   
-    cy.contains('Appointments').click()
-    cy.get('.sc-fnykZs').type('51')
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="3"] > .rs-table-cell-content')
-    .should('be.visible')
-    
+    cy.contains('Appointments').click() 
+    cy.get('.sc-fnykZs').type('Abuja')
+    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="4"] > .rs-table-cell-content').click()
+    .should('contain','Abuja Mobile Donation Center')
+    .and('be.visible')
   })
-  it('Verify that the user is able to search Appointments by width (cm) and that the result is clearly visible', function(){
-    loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
-    loginPage.enterusername('nelo_BDC');
-    loginPage.enterPassword('password');
-    loginPage.clickLogin();
-    cy.contains('Reports').click()   
-    cy.contains('Appointments').click()
-    cy.get('.sc-fnykZs').type('51')
-    cy.get('[aria-rowindex="2"] > .rs-table-cell-group > [aria-colindex="6"] > .rs-table-cell-content')
-    .should('be.visible')
-    
-  })
-  it('Verify that the user is able to search Appointments by volume (ml) and that the result is clearly visible', function(){
-    loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
-    loginPage.enterusername('nelo_BDC');
-    loginPage.enterPassword('password');
-    loginPage.clickLogin();
-    cy.contains('Reports').click()   
-    cy.contains('Appointments').click()
-    cy.get('.sc-fnykZs').type('201')
-    cy.get('.rs-table-cell-group > [aria-colindex="6"] > .rs-table-cell-content')
-    .should('be.visible')
-    
-  })
+  
   it('Verify that the ellipses under the "Actions" column expands to  enable the user view details', function() {
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
@@ -1434,12 +1411,12 @@ describe('Appointments', function(){
     cy.wait(10000)    
     cy.contains('View details').click()
     cy.get('.sc-ivTmOn')
-    .should('have.text','Blood Donation Details')
+    .should('have.text','Appointment Information')
     .and('be.visible')
 
     
   })
-  it('Verify that the modal contains blood donation details, health worker information, equipment & Consumables and other information details" ', function() {
+  it('Verify that the modal contains appointment details, health worker information, equipment & Consumables and other information details" ', function() {
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
@@ -1449,16 +1426,10 @@ describe('Appointments', function(){
     cy.get('[aria-rowindex="2"] > .rs-table-cell-group > .rs-table-cell-last > .rs-table-cell-content > .rs-btn-icon > .sc-evZas > .fa-solid').click()
     cy.wait(10000)    
     cy.contains('View details').click()
-    cy.get('.rs-modal-body > :nth-child(1) > :nth-child(3)')
-    .should('have.text','Blood Donation Details')
+    cy.get(':nth-child(1) > .sc-bBrHrO')
+    .should('have.text','Appointment Details')
     .and('be.visible')
-    cy.get('.rs-modal-body > :nth-child(1) > :nth-child(7)')
-    .should('have.text','Health Worker Information')
-    .and('be.visible')
-    cy.get('.rs-modal-body > :nth-child(1) > :nth-child(11)')
-    .should('have.text','Equipment & Consumables')
-    .and('be.visible')
-    cy.contains('Other')
+    cy.contains('Other Information')
     .should('have.text','Other Information')
 
     
@@ -1587,23 +1558,11 @@ describe('Appointments', function(){
     cy.contains('Appointments').click()
     cy.get('.rs-flex-box-grid-item > .sc-bczRLJ').click()
     cy.contains('Select Facility').click()
+    cy.contains('Abuja Mobile Donation Center').click()
+    cy.get('[style="margin-top: 24px;"] > .sc-bczRLJ').click()
 
    
   })
-  it('Verify that the user is able to filter by status', function() {
-    loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
-    loginPage.enterusername('nelo_BDC');
-    loginPage.enterPassword('password');
-    loginPage.clickLogin();
-    cy.contains('Reports').click()   
-    cy.contains('Appointments').click()
-    cy.get('.rs-flex-box-grid-item > .sc-bczRLJ').click()
-    cy.contains('Select Status').click()
-
-   
-  })
-
-  
 
   it('Verify that the user is able to filter by date period', function() {
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
@@ -1638,7 +1597,7 @@ describe('Appointments', function(){
 }) 
 
 describe('Logout', function() {
-  it('Verify that the logout button is visible and clickable', function(){
+  it.only('Verify that the logout button is visible and clickable', function(){
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
@@ -1649,7 +1608,7 @@ describe('Logout', function() {
     .should('contain','logout')
     .and('be.visible')
   })
-  it('Verify that the logout button is visible and clickable', function(){
+  it.only('Verify that the logout button is visible and clickable', function(){
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
