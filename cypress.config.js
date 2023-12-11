@@ -8,10 +8,12 @@ module.exports = defineConfig({
     defaultCommandTimeout: 10000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
+
       this.screenshotOnRunFailure=true;
-      // require('cypress-mochawesome-reporter/plugin')('on');
       allureWriter(on, config);
       return config;
     },
   },
 });
+
