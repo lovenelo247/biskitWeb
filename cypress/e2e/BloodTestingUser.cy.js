@@ -1271,7 +1271,7 @@ describe("Blood Donations", function () {
 });
 
 describe("Testing", function () {
-  it.only('Verify that the user is able to view and click on the "Testing" sub-menu button', function () {
+  it('Verify that the user is able to view and click on the "Testing" sub-menu button', function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
     loginPage.enterusername("nelo_BTU1");
     loginPage.enterPassword("password");

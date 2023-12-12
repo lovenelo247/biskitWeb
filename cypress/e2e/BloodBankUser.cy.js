@@ -1093,7 +1093,7 @@ describe("Deliveries", function () {
     cy.contains("Select Status").click();
   });
 
-  it.only('Verify that the filter is triggered by clicking on a "Filter" button which is clearly visible and clickable', function () {
+  it('Verify that the filter is triggered by clicking on a "Filter" button which is clearly visible and clickable', function () {
     loginPage.navigate("https://biskit-frontend-dev.eha.im/#/signin");
     loginPage.enterusername("nelo_BBU");
     loginPage.enterPassword("password");
