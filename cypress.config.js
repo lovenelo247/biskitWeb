@@ -3,6 +3,11 @@ const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
+  'reporterOptions': {
+    'reportDir' : 'cypress/report',
+    'charts': true,
+    'reportPageTitle': 'BISKIT WEB AUTOMATION'
+  },
   e2e: {
     watchForFileChanges: true,
     defaultCommandTimeout: 10000,

@@ -748,7 +748,7 @@ describe('Report menu', function() {
    
   })
 
-  it.skip('Verify that the system is able to download the report in CSV format', function() {
+  it('Verify that the system is able to download the report in CSV format', function() {
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
@@ -759,7 +759,7 @@ describe('Report menu', function() {
     cy.contains('CSV').click()
    
   })
-  it.skip('Verify that the system is able to download the report in PDF format', function() {
+  it('Verify that the system is able to download the report in PDF format', function() {
     loginPage.navigate('https://biskit-frontend-dev.eha.im/#/signin');
     loginPage.enterusername('nelo_BDC');
     loginPage.enterPassword('password');
